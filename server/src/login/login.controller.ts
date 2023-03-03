@@ -11,8 +11,11 @@ export class LoginController {
     }
     if (username === 'admin' && password === '1234567890') {
       const newToken = jwt.sign({ username, password }, 'secret_ahihi');
-      return res.status(HttpStatus.OK).json({ token: newToken });
+      return res
+        .status(HttpStatus.OK)
+        .cookie('token', newToken, { secure: true, sameSite: 'strict' })
+        .json({ status: 'success' });
     }
-    return res.status(HttpStatus.OK).json({ status: 'login fail' });
+    return res.status(HttpStatus.OK).json({ status: 'fail' });
   }
 }

@@ -1,12 +1,19 @@
 import React from "react";
-import { RouteProps } from "react-router-dom";
+import { Redirect, RouteProps } from "react-router-dom";
+import { checkToken } from "../../utils/cookieHandler";
 
 type Props = {
   children?: React.ReactNode;
 } & RouteProps;
 
 const PrivateRoutes: React.FC<Props> = ({ children, ...rests }) => {
-  return <div>{children}</div>;
+  if (!checkToken()) {
+    return <Redirect to={"/login"} />;
+  }
+  return React.cloneElement(children as React.ReactElement, {
+    children,
+    rests,
+  });
 };
 
 export default PrivateRoutes;
