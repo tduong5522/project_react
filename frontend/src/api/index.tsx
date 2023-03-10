@@ -5,7 +5,6 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_BE_SERVER,
   timeout: 3000,
   headers: {
-    "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": process.env.REACT_APP_BE_SERVER,
   },
   withCredentials: true
