@@ -1,9 +1,10 @@
 import React, { ReactNode } from "react";
-import { Breadcrumb, Layout, Menu } from "antd";
+import { Avatar, Breadcrumb, Layout, Menu } from "antd";
 import { Link, useLocation } from "react-router-dom";
 import "./index.scss";
 
-import logo from "Src/assets/images/logo_mmt.png";
+import { useAuth } from "appSrc/hooks/useAuth";
+import logo from "appSrc/assets/images/logo_mmt.png";
 
 type Props = {
   children: ReactNode | undefined;
@@ -19,6 +20,7 @@ const LIST_MENU = [
 
 const MainLayout: React.FC<Props> = ({ children }) => {
   const location = useLocation();
+  const { signOut } = useAuth()
 
   const getKeyActive = () => {
     switch (location.pathname) {
@@ -47,6 +49,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
           selectedKeys={[getKeyActive()]}
           items={LIST_MENU}
         />
+        <Avatar className="avatar-header" onClick={() => signOut}/>
       </Header>
       <Content style={{ padding: "0 50px" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>

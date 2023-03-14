@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "appSrc/*": ["src/*"]
+    },
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,8 +22,5 @@
     "noImplicitAny": false,
     "strictNullChecks": true
   },
-  "include": [
-    "src",
-    "custom.d.ts"
-  ]
+  "include": ["src", "custom.d.ts"]
 }

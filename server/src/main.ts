@@ -1,9 +1,17 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-declare const module: any;
+import { initializeApp, cert } from 'firebase-admin/app';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const serviceAccount = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+initializeApp({
+  credential: cert(serviceAccount),
+});
+
+declare const module: any;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   app.enableCors({
     origin: process.env.FE_CLIENT,
     credentials: true,

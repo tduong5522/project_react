@@ -24,4 +24,9 @@ $height_breadcrumbs: 22px + 32px;
     display: flex;
     align-items: center;
   }
+  .avatar-header {
+    background-color: white;
+    margin-left: auto;
+    cursor: pointer;
+  }
 }
