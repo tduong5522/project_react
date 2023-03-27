@@ -1,0 +1,16 @@
+.admin-menu-container {
+    &.ant-menu-dark > .ant-menu-item-selected {
+        background-color: green;
+    }
+    &.ant-menu-dark {
+        background-color: gray;
+        user-select: none;
+    }
+    .ant-menu-item {
+        width: 125px;
+        text-align: center;
+    }
+    .ant-menu-item:not(:nth-last-child(2)) {
+        border-right: 1px solid white;
+    }
+}

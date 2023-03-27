@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoutes from "./components/PrivateRoutes";
-import { About, Home, Login, Unsupport } from "./pages";
+import { About, AdminPage, Home, Login, Unsupport } from "./pages";
 import "./App.css";
 
 function App() {
@@ -9,6 +9,9 @@ function App() {
       <Switch>
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/admin">
+          <AdminPage />
         </Route>
         <PrivateRoutes path="/about">
           <About />
